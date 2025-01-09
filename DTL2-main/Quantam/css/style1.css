@@ -1,0 +1,81 @@
+@import url("./aos.css");
+@import url("https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css");
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f5f5f5;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+header {
+    background-color: #4a90e2;
+    color: white;
+    padding: 50px 0;
+    text-align: center;
+}
+
+header h1 {
+    font-size: 48px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+header p {
+    font-size: 20px;
+    font-weight: 400;
+    margin: 0;
+}
+
+.topics {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    margin: 50px 10%;
+}
+
+.topic-item {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: center;
+    width: 30%;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.topic-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.topic-item h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.topic-item a {
+    color: #4a90e2;
+    text-decoration: none;
+}
+
+.topic-item p {
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+@media (max-width: 768px) {
+    .topics {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .topic-item {
+        width: 80%;
+        margin-bottom: 20px;
+    }
+}
