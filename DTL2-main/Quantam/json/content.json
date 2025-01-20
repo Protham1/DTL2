@@ -1,0 +1,46 @@
+{
+    "timeline": [
+        {
+            "caption": "Planck's Quantum Hypothesis",
+            "content": "Max Planck introduces the idea that energy is quantized, laying the foundation for quantum mechanics. This concept was crucial in the development of quantum theory, challenging classical ideas of energy being continuous.",
+            "date": "1900"
+        },
+        {
+            "caption": "Einstein's Photoelectric Effect",
+            "content": "Albert Einstein explains the photoelectric effect, demonstrating that light behaves as a particle. This work contributed to the quantum theory of light and earned him the Nobel Prize in Physics in 1921.",
+            "date": "1905"
+        }
+        ,
+        
+        {
+            "caption": "Heisenberg's Matrix Mechanics",
+            "content": "Werner Heisenberg formulates matrix mechanics, an alternative to classical mechanics that describes physical quantities in terms of matrices. This was a revolutionary approach to understanding quantum behavior.",
+            "date": "1925"
+        }
+        ,
+        {
+            "caption": "Schrödinger's Wave Equation",
+            "content": "Erwin Schrödinger develops the wave equation, which describes the behavior of quantum particles in terms of probability waves. This wave function is fundamental to quantum mechanics and is widely used in quantum theory today.",
+            "date": "1926"
+        }
+        ,
+        {
+            "caption": "Uncertainty Principle",
+            "content": "Werner Heisenberg introduces the uncertainty principle, revealing that certain pairs of physical properties, like position and momentum, cannot be simultaneously measured with arbitrary precision. This challenges classical ideas of measurement.",
+            "date": "1927"
+        }
+        ,
+        {
+            "caption": "Schrödinger's Cat Thought Experiment",
+            "content": "Erwin Schrödinger illustrates quantum superposition and measurement issues with his famous cat paradox. The experiment demonstrates how quantum mechanics can lead to counterintuitive and paradoxical situations.",
+            "date": "1935"
+        }
+        ,
+        {
+            "caption": "Bell's Theorem",
+            "content": "John Bell formulates Bell's theorem, which proves that quantum mechanics predicts correlations between measurements that cannot be explained by any local hidden variable theory. This further challenges classical physics and suggests quantum non-locality.",
+            "date": "1964"
+        }
+        
+        ]
+}

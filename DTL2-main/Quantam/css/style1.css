@@ -1,0 +1,142 @@
+@import url("./aos.css");
+@import url("https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css");
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+.timeline {
+  padding: 50px 0;
+}
+
+html, body {
+  overflow-x: hidden;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  font-size: 17px;
+  font-weight: 400;
+  background-color: #121212; /* Dark background */
+  color: #ffffff; /* White text */
+}
+
+.timeline {
+  position: relative;
+  overflow: hidden;
+}
+
+.timeline h2 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 22px;
+  color: #ff6600; /* Orange highlight for titles */
+}
+
+.timeline::before {
+  content: '';
+  background: #ffffff; /* White timeline line */
+  width: 7px;
+  border: 2px solid #ff6600; /* Orange border for timeline */
+  height: 95%;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.timeline-item {
+  width: 100%;
+  margin-bottom: 40px;
+}
+
+.timeline-content {
+  position: relative;
+  width: 45%;
+  padding: 20px;
+  border-radius: 8px;
+  background: #1e1e1e; /* Dark background for timeline items */
+  border: 3px solid #ff6600; /* Orange border */
+  box-shadow: 0 20px 25px -15px rgba(0, 0, 0, 0.3);
+  color: #b0b0b0; /* Subtle gray text color */
+  transform: scale(0.95);
+}
+
+.timeline-content:hover {
+  transform: scale(1);
+  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+  background: #2a2a2a; /* Slightly lighter background on hover */
+}
+
+.timeline-content::after {
+  content: '';
+  position: absolute;
+  border-style: solid;
+  width: 0;
+  height: 0;
+  top: -3px;
+  right: -15px;
+  border-width: 10px 0 10px 15px;
+  border-color: transparent transparent transparent #ff6600; /* Orange arrow */
+}
+
+.timeline-circle {
+  width: 15px;
+  height: 15px;
+  background: #ff6600; /* Orange timeline circle */
+  border-radius: 50%;
+  position: absolute;
+  left: 50%;
+  margin-top: 0px;
+  margin-left: -7.5px;
+}
+
+.date {
+  background: #ff6600; /* Orange background for dates */
+  display: inline-block;
+  color: #121212; /* Dark text for contrast */
+  font-size: 12px;
+  font-family: 'Poppins', sans-serif;
+  padding: 10px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  border: 3px solid #ff6600; /* Orange border */
+}
+
+@media screen and (max-width: 768px) {
+  .timeline::before {
+    left: 50px;
+  }
+  .timeline .timeline-circle {
+    left: 50px;
+  }
+  .timeline .timeline-content {
+    max-width: 100%;
+    width: auto;
+    margin-left: 70px;
+  }
+  .timeline .timeline-item:nth-child(even) .timeline-content {
+    float: none;
+  }
+  .timeline .timeline-item:nth-child(odd) .timeline-content::after {
+    content: '';
+    position: absolute;
+    border-style: solid;
+    width: 0;
+    height: 0;
+    top: -3px;
+    left: -15px;
+    border-width: 10px 15px 10px 0;
+    border-color: transparent #ff6600 transparent transparent; /* Orange arrow */
+  }
+  .timeline-item:nth-child(odd) .timeline-content .date {
+    right: auto;
+    left: -1px;
+    top: -1px;
+  }
+  .timeline-item:nth-child(even) .timeline-content .date {
+    right: auto;
+    left: -1px;
+    top: -1px;
+  }
+  .timeline-item:nth-child(odd) .timeline-content {
+    padding: 0px 30px 10px 90px;
+  }
+}
