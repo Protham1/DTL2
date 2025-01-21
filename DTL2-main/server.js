@@ -38,9 +38,9 @@ app.post("/update-timeline", async (req, res) => {
     // Define instructions for the AI model
     const instructions = `
     You are a helpful assistant providing scientific context.
-    Provide dates in a concise way,explain each content in 200-300 words
+    Provide dates in a concise way,explain each content in 150-300 words
     When a topic is provided, modify only the contents of this html page according to the major discoverier and build a timeline for the provided topic
-    
+    give as many events as possibel try to give at least 10 events
     <!DOCTYPE html>
 <html lang="en">
 

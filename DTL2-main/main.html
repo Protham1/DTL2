@@ -209,24 +209,37 @@
         const timelineTopicInput = document.getElementById('timeline-topic');
         const updateTimelineBtn = document.getElementById('update-timeline-btn');
         const timelineFeedback = document.getElementById('timeline-feedback');
-
+    
+        // Create a loading spinner element
+        const loadingSpinner = document.createElement('div');
+        loadingSpinner.id = 'loading-spinner';
+        loadingSpinner.style.display = 'none';
+        loadingSpinner.style.textAlign = 'center';
+        loadingSpinner.innerHTML = `
+            <div style="margin: 10px;">
+                <img src="loading.gif" alt="Loading..." style="width: 30px; height: 30px;">
+                <p>Updating timeline...</p>
+            </div>
+        `;
+        document.querySelector('.update-timeline').appendChild(loadingSpinner);
+    
         // Toggle chat window
         chatbotIcon.addEventListener('click', () => {
             chatWindow.style.display = 'flex';
         });
-
+    
         closeChat.addEventListener('click', () => {
             chatWindow.style.display = 'none';
         });
-
+    
         // Send message to backend
         sendBtn.addEventListener('click', async () => {
             const userMessage = chatInput.value;
             if (!userMessage.trim()) return;
-
+    
             chatBody.innerHTML += `<p><strong>You:</strong> ${userMessage}</p>`;
             chatInput.value = '';
-
+    
             try {
                 const response = await fetch('http://localhost:3000/chat', {
                     method: 'POST',
@@ -235,17 +248,17 @@
                     },
                     body: JSON.stringify({ message: userMessage }),
                 });
-
+    
                 const data = await response.json();
                 chatBody.innerHTML += `<p><strong>Bot:</strong> ${data.response}</p>`;
             } catch (error) {
                 chatBody.innerHTML += `<p><strong>Bot:</strong> Sorry, something went wrong.</p>`;
                 console.error('Error communicating with chatbot:', error);
             }
-
+    
             chatBody.scrollTop = chatBody.scrollHeight;
         });
-
+    
         // Update timeline
         updateTimelineBtn.addEventListener('click', async () => {
             const topic = timelineTopicInput.value.trim();
@@ -253,7 +266,11 @@
                 alert('Please enter a topic.');
                 return;
             }
-
+    
+            // Show loading spinner
+            loadingSpinner.style.display = 'block';
+            timelineFeedback.style.display = 'none';
+    
             try {
                 const response = await fetch('http://localhost:3000/update-timeline', {
                     method: 'POST',
@@ -262,7 +279,7 @@
                     },
                     body: JSON.stringify({ topic }),
                 });
-
+    
                 const data = await response.json();
                 if (response.ok) {
                     timelineFeedback.style.color = 'green';
@@ -271,17 +288,20 @@
                     timelineFeedback.style.color = 'red';
                     timelineFeedback.innerText = data.message;
                 }
-
+    
                 timelineFeedback.style.display = 'block';
             } catch (error) {
                 timelineFeedback.style.color = 'red';
                 timelineFeedback.innerText = 'Error updating timeline. Try again later.';
                 timelineFeedback.style.display = 'block';
                 console.error('Error updating timeline:', error);
+            } finally {
+                // Hide loading spinner after the process completes
+                loadingSpinner.style.display = 'none';
             }
         });
-        
     </script>
+    
 </body>
 
 </html>
